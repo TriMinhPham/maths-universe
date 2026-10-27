@@ -2,9 +2,17 @@
 
 A local browser learning adventure covering **576 Mathematics topics across 12 worlds**. No age, name, camera, microphone, robot or model API is required to play.
 
-Each topic provides an introductory explanation, worked example, two practice questions and a boss question: **1,728 authored questions**. There are **282 parent-observed practical activities**. Progress and stars persist locally in SQLite; parent controls include earning settings, audited adjustments and history. An earlier starter adventure remains available at `/starter`.
+Each topic provides an introductory explanation, worked example, two practice questions and a boss question: **1,728 authored questions**. There are **282 parent-observed practical activities**. The local Python edition saves progress in SQLite and preserves an earlier starter adventure at `/starter`. The public edition saves progress in the browser; both offer parent earning settings, audited adjustments and history.
 
-**This repository shares the runnable source, not a hosted website.** It is a gamified quiz adventure, not 576 distinct mini-games or a certification of mastery. Questions are authored, not unlimited dynamically generated exercises.
+## Play online
+
+**https://triminhpham.github.io/maths-universe/**
+
+The public GitHub Pages edition runs entirely in your browser. All 576 topics are playable without installing Python or signing in. Progress, stars and parent notes are stored in that browser's IndexedDB, not uploaded to a server. Different browsers/devices have separate progress; clearing site data removes it. It does not sync with the local Mac edition. Device-local parent controls are not password-protected and affect only that browser's progress.
+
+It is a gamified quiz adventure, not 576 distinct mini-games or a certification of mastery. Questions are authored, not unlimited dynamically generated exercises.
+
+To rebuild the public edition, run `python3 build_public.py`; GitHub Pages serves the `docs/` directory. Optional browser acceptance: install Playwright/Chromium, then run `python3 tests/public_browser.py`. This exercises every topic against the browser persistence engine plus real mobile interactions, reload/resume, reward deduplication and visitor isolation.
 
 ## Run locally
 
