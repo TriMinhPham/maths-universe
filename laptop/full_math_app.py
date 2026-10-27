@@ -15,6 +15,8 @@ def install(app,store,bank_path=None,require_complete=True):
  def js():return FileResponse(ROOT/'full_math.js',media_type='text/javascript')
  @app.get('/full_math_visual.js')
  def charts():return FileResponse(ROOT/'full_math_visual.js',media_type='text/javascript')
+ @app.get('/visual_learning.js')
+ def playground():return FileResponse(ROOT/'visual_learning.js',media_type='text/javascript')
  @app.get('/full_math.css')
  def css():return FileResponse(ROOT/'full_math.css',media_type='text/css')
  @app.get('/api/quests/catalog')

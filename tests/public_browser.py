@@ -8,7 +8,7 @@ try:
   try:urllib.request.urlopen(base);break
   except OSError:time.sleep(.1)
  with sync_playwright() as pw:
-  b=pw.chromium.launch();c=b.new_context();p=c.new_page();errors=[];p.on('pageerror',lambda e:errors.append(str(e)));p.goto(base);p.get_by_text('576 topics · 12 worlds',exact=True).wait_for()
+  b=pw.chromium.launch();c=b.new_context();p=c.new_page();errors=[];p.on('pageerror',lambda e:errors.append(str(e)));p.goto(base);p.get_by_text('576 topics · 12 worlds',exact=True).wait_for(state='attached')
   result=p.evaluate('''async()=>{
    const api=window.MathsPublic.api,body=x=>({...x,request_id:crypto.randomUUID()}),rows=(await (await fetch('./lessons.json')).json()).lessons;
    let count=0,observations=0;
@@ -19,9 +19,9 @@ try:
     if(!s.progress[l.topic_id].complete)throw Error('Stage incomplete');count++;
    }
    const s=await api('/api/quests/state');if(s.stars!==rows.length*3)throw Error('Incorrect reward total');return {topics:count,questions:count*3,parent_checks:observations,stars:s.stars};
-  }''');p.reload();p.get_by_text('576 stages completed',exact=True).wait_for();assert result['topics']==576
-  c.close();c=b.new_context(viewport={'width':375,'height':812});p=c.new_page();p.on('pageerror',lambda e:errors.append(str(e)));p.goto(base);p.get_by_text('576 topics · 12 worlds',exact=True).wait_for();assert p.locator('#stars').inner_text()=='0'
-  tid='mt_iEXqN48w3x';bank=json.loads((R/'docs/lessons.json').read_text());lesson=next(l for l in bank['lessons'] if l['topic_id']==tid);p.locator('#search').fill('Percentages');p.locator(f'[data-topic="{tid}"] button').click();p.locator('#start').click();p.locator('#choices button:enabled').first.wait_for()
+  }''');p.reload();p.get_by_text('576 stages completed',exact=True).wait_for(state='attached');assert result['topics']==576
+  c.close();c=b.new_context(viewport={'width':375,'height':812});p=c.new_page();p.on('pageerror',lambda e:errors.append(str(e)));p.goto(base);p.get_by_text('576 topics · 12 worlds',exact=True).wait_for(state='attached');assert p.locator('#stars').inner_text()=='0'
+  tid='mt_iEXqN48w3x';bank=json.loads((R/'docs/lessons.json').read_text());lesson=next(l for l in bank['lessons'] if l['topic_id']==tid);p.locator('#browse-library').click();p.locator('#search').fill('Percentages');p.locator(f'[data-topic="{tid}"] button').click();p.locator('#start').click();p.locator('#choices button:enabled').first.wait_for()
   def state():return p.evaluate("window.MathsPublic.api('/api/quests/state')")
   s=state();correct=s['active']['problem']['choices'].index(lesson['questions'][0]['choices'][lesson['questions'][0]['correct']]);p.locator('#choices button').nth((correct+1)%4).click();expect(p.locator('#feedback')).to_contain_text('Not quite');assert state()['stars']==0
   old=state()['active']['problem']['id'];p.reload();p.locator('#resume-button').click();assert state()['active']['problem']['id']==old

@@ -1,12 +1,147 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark"><title>Firstbot · Maths Universe</title><link rel="stylesheet" href="./adventure.css"><link rel="stylesheet" href="./full_math.css"><script src="./full_math_visual.js" defer></script><script src="./public_runtime.js" defer></script><script src="./full_math.js" defer></script></head><body>
-<a class="skip-link" href="#main">Skip to lessons</a><header class="topbar"><a class="brand" href="./">✦ <span>firstbot<span class="brand-sub">MATHS UNIVERSE</span></span></a><div class="top-actions"><span class="star-wallet"><span aria-hidden="true">★</span> <strong id="stars">0</strong><span class="sr-only"> stars</span></span><button class="button quiet small" id="parent" disabled>Parent corner</button><a class="button quiet small" href="https://github.com/TriMinhPham/maths-universe">Source & local edition</a></div></header>
-<div id="error" class="error-banner" role="alert" hidden><span id="error-text"></span><button id="recover" class="button secondary">Refresh saved progress</button><button id="retry" class="button secondary" hidden>Retry same action</button></div><p id="live" class="sr-only" aria-live="polite"></p>
-<main id="main"><section id="map"><div class="hero"><div class="hero-copy"><p class="eyebrow">A UNIVERSE OF SMALL DISCOVERIES</p><h1>Every topic.<br>Your own path.</h1><p class="hero-description">Explore maths through introductory lessons, two practice checks and a friendly topic boss. Build familiarity at your pace; completing a stage is not proof of mastery.</p><div class="hero-tags"><span>✦ No age gates</span><span>↻ Room to try again</span><span>♡ No timers</span></div></div><div class="universe-art" aria-hidden="true">✦<span>＋</span><span>½</span><span>△</span><span>π</span></div></div>
-<div class="resume-card" id="resume" hidden><div><p class="eyebrow">YOUR SAVED PLACE</p><h2 id="resume-title"></h2></div><button id="resume-button" class="button primary">Continue →</button></div><div class="section-heading"><div><p class="eyebrow">CHOOSE A WORLD</p><h2 id="catalog-title">Loading curriculum…</h2></div><span id="completion-count"></span></div><div id="worlds" class="world-grid"></div>
-<section class="topic-section"><div class="filters"><label>Find a topic<input id="search" type="search" placeholder="Fractions, angles, probability…"></label><label>World<select id="domain"><option value="">All worlds</option></select></label><label>Show<select id="filter"><option value="all">All stages</option><option value="new">Not yet completed</option><option value="done">Completed</option><option value="parent">Parent activity pending</option></select></label></div><p id="results-label" role="status"></p><div id="topics" class="topic-grid"></div><div class="pager"><button id="previous" class="button quiet">← Previous</button><span id="page-label"></span><button id="more" class="button quiet">Next →</button></div></section></section>
-<section id="lesson" hidden><button id="lesson-back" class="button quiet">← Worlds & stages</button><p id="lesson-domain" class="eyebrow"></p><h1 id="lesson-title" tabindex="-1"></h1><p id="lesson-description" class="hero-description"></p><div class="lesson-grid"><article class="learn-card"><h2>The idea</h2><p id="explanation"></p><h3>A worked example</h3><p id="example-prompt"></p><ol id="example-steps"></ol><p id="example-answer" class="example-answer"></p></article><aside class="learn-card"><h2>Your quest</h2><ol class="quest-list"><li>Check 1: Practice question</li><li>Check 2: Build confidence</li><li>Boss: Friendly challenge</li></ol><p id="scope"></p><p id="activity-note"></p><button id="start" class="button primary">Start this stage →</button><button id="replay" class="button quiet" hidden>Practise again</button></aside></div><section id="activity-preview" class="learn-card" hidden><h2>Try it away from the screen</h2><p id="activity-prompt"></p><ul id="activity-criteria"></ul><p class="gentle-note">This practical task needs a parent to observe it. Digital questions alone do not demonstrate the whole skill.</p></section></section>
-<section id="play" hidden><div class="play-heading"><button id="pause" class="button quiet">← Pause & explore</button><span id="phase" class="pill"></span></div><h1 id="play-title" tabindex="-1"></h1><p id="play-progress"></p><article class="problem-card"><div id="boss-face" class="friendly-boss" aria-hidden="true" hidden>♛<span>•‿•</span></div><h2 id="prompt" tabindex="-1"></h2><div id="visual"></div><div id="choices" class="full-choices" role="group" aria-label="Choose an answer"></div><div id="feedback" class="feedback" role="status" aria-live="polite"></div><div class="problem-actions"><div><button id="help" class="button quiet small">Show me why</button><button id="skip" class="button quiet small">Restart this question</button></div><button id="next" class="button primary" hidden>Continue →</button></div></article><p class="play-reassurance">No rush. Your exact place is saved. Help gives an explanation; retrying creates a new practice instance.</p></section>
-<section id="complete" class="completion-card" hidden><div class="completion-emblem">✦</div><h1 id="complete-title" tabindex="-1"></h1><p id="complete-copy"></p><section id="verify-section" hidden><h2>Parent observation</h2><p id="verify-prompt"></p><form id="verify-form"><fieldset><legend>Observed practical skills</legend><div id="checklist"></div></fieldset><label>Observation note<input id="verify-reason" maxlength="160" required placeholder="Describe what you observed"></label><button class="button primary" type="submit">Confirm observed activity</button></form><p>This is a parent attestation, not automatic grading or proof of mastery.</p></section><button id="complete-map" class="button primary">Explore another stage →</button></section>
-</main><footer><p id="notice"></p><p>Introductory lessons and checks for the full imported topic catalog. Each topic states its limits; completion is not mastery.</p><p>Marble Skill Taxonomy (v1) · © Generative Spark, Inc. (Marble) · <a href="./licenses/LICENSE">ODbL 1.0</a> · <a href="./licenses/LICENSE-CONTENT">CC BY-SA 4.0</a> · <a href="./licenses/NOTICE.md">Attribution</a></p></footer>
-<dialog id="parent-dialog" class="parent-dialog"><div class="dialog-heading"><h2>Parent corner</h2><button id="close-parent" class="icon-button" aria-label="Close parent corner">×</button></div><p>These controls affect only this browser and are not password-protected. No progress is sent to a server. Observe practical tasks before confirming them. This browser does not sync with the Mac app or other devices.</p><h3>Star settings</h3><form id="earning-form"><label><input id="auto" type="checkbox"> Award stars for correct answers</label><label>Stars per answer<input id="rate" type="number" min="0" max="5" required></label><label>Reason<input id="earning-reason" maxlength="160" required></label><button class="button secondary">Save settings</button></form><h3>Adjust stars</h3><form id="adjust-form"><label>Add or remove stars<input id="delta" type="number" step="1" required></label><label>Reason<input id="adjust-reason" maxlength="160" required></label><button class="button secondary">Record adjustment</button></form><h3>Parent observations</h3><ol id="activity-audit"></ol><h3>Device control audit</h3><ol id="control-audit"></ol><h3>Curriculum attempts</h3><button id="history-refresh" class="button quiet">Refresh history</button><ol id="history"></ol><button id="history-more" class="button quiet" hidden>Earlier attempts</button><p><a href="https://github.com/TriMinhPham/maths-universe">Download local edition & starter adventure →</a></p></dialog>
-</body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#fbf7ed">
+  <title>Firstbot · Maths Universe</title>
+  <link rel="stylesheet" href="./adventure.css">
+  <link rel="stylesheet" href="./full_math.css">
+  <script src="./full_math_visual.js" defer></script>
+  <script src="./visual_learning.js" defer></script>
+  <script src="./public_runtime.js" defer></script><script src="./full_math.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to lessons</a>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Firstbot Maths Universe home">
+      <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect x="3" y="3" width="42" height="42" rx="15" fill="#087b70"/><path d="M14 25h20M24 15v20" stroke="#fffdf6" stroke-width="5" stroke-linecap="round"/><circle cx="36" cy="12" r="7" fill="#f47b66"/></svg>
+      <span>firstbot<span class="brand-sub">MATHS UNIVERSE</span></span>
+    </a>
+    <div class="top-actions">
+      <span class="star-wallet"><span aria-hidden="true">★</span> <strong id="stars">0</strong><span class="sr-only"> stars</span></span>
+      <button class="button quiet small" id="parent" disabled>Parent corner</button>
+    </div>
+  </header>
+  <div id="error" class="error-banner" role="alert" hidden>
+    <span id="error-text"></span>
+    <button id="recover" class="button secondary">Refresh saved progress</button>
+    <button id="retry" class="button secondary" hidden>Retry same action</button>
+  </div>
+  <p id="live" class="sr-only" aria-live="polite"></p>
+  <main id="main" tabindex="-1">
+    <section id="map" aria-labelledby="map-title">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">SMALL WONDERS. BIG IDEAS.</p>
+          <h1 id="map-title" tabindex="-1">A little play.<br><span>A big discovery.</span></h1>
+          <p class="hero-description">Make shapes. Move things. See what happens.<br>There’s a whole world of maths to explore.</p>
+          <button id="hero-play" class="button primary hero-cta" type="button">Let’s play <span aria-hidden="true">↗</span></button>
+          <p class="hero-reassurance">Your pace. No timers. Room to try again.</p>
+        </div>
+        <div class="universe-art" aria-hidden="true">
+          <svg viewBox="0 0 460 360" focusable="false">
+            <ellipse cx="236" cy="190" rx="205" ry="153" fill="#eee7fb"/>
+            <path d="M31 251C97 209 149 224 218 251S355 288 425 240v62c-116 43-263 45-394-1Z" fill="#bce8d6"/>
+            <path d="M59 292c115-34 199 36 348-5" fill="none" stroke="#087b70" stroke-width="3" stroke-dasharray="7 9"/>
+            <circle cx="344" cy="100" r="47" fill="#f47b66"/>
+            <ellipse cx="344" cy="100" rx="70" ry="15" fill="none" stroke="#203935" stroke-width="4" transform="rotate(-28 344 100)"/>
+            <circle cx="332" cy="90" r="7" fill="#ffb49f"/><circle cx="358" cy="109" r="11" fill="#df5c49"/>
+            <circle cx="92" cy="102" r="32" fill="#f5cb64"/>
+            <path d="M92 59v-9m0 104v-9m43-43h9m-104 0h9m12-31-7-7m76 76-7-7m0-62 7-7m-76 76 7-7" stroke="#be8b28" stroke-width="3" stroke-linecap="round"/>
+            <g transform="rotate(15 220 180)">
+              <path d="m182 205-30 39 38-8m59-31 30 39-38-8" fill="#f47b66" stroke="#203935" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M181 223c-8-64 1-101 35-128 34 27 43 64 35 128Z" fill="#fffdf6" stroke="#203935" stroke-width="3"/>
+              <path d="M192 127c6-13 14-24 24-32 10 8 18 19 24 32Z" fill="#087b70"/>
+              <circle cx="216" cy="164" r="20" fill="#a6ded8" stroke="#203935" stroke-width="3"/>
+              <path d="m207 160 6-6m4 18 10-10" stroke="#fffdf6" stroke-width="4" stroke-linecap="round"/>
+              <path d="M201 225h30l-6 27-9-8-9 8Z" fill="#f5cb64"/>
+              <path d="M184 210h64" stroke="#203935" stroke-width="3"/>
+            </g>
+            <path d="M74 281v-64m0 36c-27 0-35-22-32-34 24 0 32 19 32 34Zm0-17c0-24 17-40 36-38 2 24-17 38-36 38Z" fill="#087b70" stroke="#203935" stroke-width="2.5" stroke-linejoin="round"/>
+            <rect x="54" y="270" width="41" height="31" rx="9" fill="#f47b66" stroke="#203935" stroke-width="2.5"/>
+            <path d="M337 284v-47m0 25c-22-1-29-16-26-29 22 1 26 16 26 29Zm0-10c0-19 13-32 29-30 1 19-13 30-29 30Z" fill="#087b70"/>
+            <path d="m356 179 12 23h-25Z" fill="#9b80dd" stroke="#203935" stroke-width="2.5" stroke-linejoin="round"/>
+            <rect x="115" y="165" width="25" height="25" rx="7" fill="#f5cb64" stroke="#203935" stroke-width="2.5" transform="rotate(-16 128 177)"/>
+            <path d="m279 37 3 9 9 3-9 3-3 9-3-9-9-3 9-3Zm122 147 3 9 9 3-9 3-3 9-3-9-9-3 9-3Z" fill="#087b70"/>
+            <circle cx="158" cy="66" r="4" fill="#203935"/><circle cx="292" cy="175" r="4" fill="#203935"/><circle cx="127" cy="255" r="5" fill="#9b80dd"/>
+          </svg>
+        </div>
+      </div>
+      <div class="resume-card" id="resume" hidden>
+        <div><p class="eyebrow">RIGHT WHERE YOU LEFT OFF</p><h2 id="resume-title"></h2></div>
+        <button id="resume-button" class="button secondary">Keep exploring →</button>
+      </div>
+      <section id="discovery" aria-labelledby="discovery-title">
+        <div class="section-heading"><div><p class="eyebrow">FOLLOW YOUR CURIOSITY</p><h2 id="discovery-title">What will you discover?</h2></div><p>Pick a little adventure.</p></div>
+        <div id="discoveries" class="discovery-grid"></div>
+        <div class="library-invitation"><p>Looking for something else?</p><button id="browse-library" class="button quiet" type="button" aria-controls="library" aria-expanded="false">Browse all topics <span aria-hidden="true">↓</span></button></div>
+      </section>
+      <section id="library" aria-labelledby="catalog-title" hidden>
+        <div class="section-heading"><div><p class="eyebrow">THE WHOLE UNIVERSE</p><h2 id="catalog-title" tabindex="-1">Loading curriculum…</h2></div><span id="completion-count"></span></div>
+        <div id="worlds" class="world-grid"></div>
+        <section class="topic-section" aria-label="Find a lesson">
+          <div class="filters">
+            <label>Find a topic<input id="search" type="search" placeholder="Fractions, angles, probability…"></label>
+            <label>World<select id="domain"><option value="">All worlds</option></select></label>
+            <label>Show<select id="filter"><option value="all">All stages</option><option value="new">Not yet completed</option><option value="done">Completed</option><option value="parent">Parent activity pending</option></select></label>
+          </div>
+          <p id="results-label" role="status"></p>
+          <div id="topics" class="topic-grid"></div>
+          <div class="pager"><button id="previous" class="button quiet">← Previous</button><span id="page-label"></span><button id="more" class="button quiet">Next →</button></div>
+        </section>
+      </section>
+    </section>
+    <section id="lesson" aria-labelledby="lesson-title" hidden>
+      <button id="lesson-back" class="button quiet">← Back to discoveries</button>
+      <p id="lesson-domain" class="eyebrow"></p>
+      <h1 id="lesson-title" tabindex="-1"></h1>
+      <div id="lesson-playground" class="lesson-playground" role="region" aria-label="Hands-on discovery"></div>
+      <div class="lesson-actions"><button id="start" class="button primary">Try the practice →</button><button id="replay" class="button secondary" hidden>Practise again</button></div>
+      <p class="gentle-note lesson-note">Play is ungraded. Challenges can earn stars.</p>
+      <div class="lesson-grid">
+        <details class="learn-card lesson-details">
+          <summary>The idea &amp; a worked example</summary>
+          <div class="details-content"><p id="lesson-description" class="hero-description"></p><h2>The idea</h2><p id="explanation"></p><h3>A worked example</h3><p id="example-prompt"></p><ol id="example-steps"></ol><p id="example-answer" class="example-answer"></p></div>
+        </details>
+        <details class="learn-card lesson-details">
+          <summary>Practice steps &amp; grown-up notes</summary>
+          <div class="details-content"><h2>Your quest</h2><ol class="quest-list"><li>Check 1: Practice question</li><li>Check 2: Build confidence</li><li>Boss: Friendly challenge</li></ol><p id="scope"></p><p id="activity-note"></p>
+            <section id="activity-preview" class="activity-preview" hidden><h2>Try it away from the screen</h2><p id="activity-prompt"></p><ul id="activity-criteria"></ul><p class="gentle-note">This practical task needs a parent to observe it. Digital questions alone do not demonstrate the whole skill.</p></section>
+          </div>
+        </details>
+      </div>
+    </section>
+    <section id="play" aria-labelledby="play-title" hidden>
+      <div class="play-heading"><button id="pause" class="button quiet">← Pause &amp; explore</button><span id="phase" class="pill"></span></div>
+      <h1 id="play-title" tabindex="-1"></h1><p id="play-progress"></p>
+      <article class="problem-card">
+        <div id="boss-face" class="friendly-boss" aria-hidden="true" hidden><svg viewBox="0 0 90 76" focusable="false"><path d="m20 25-5-16 20 9L45 3l10 15 20-9-5 16" fill="#f5cb64" stroke="#203935" stroke-width="3" stroke-linejoin="round"/><rect x="14" y="25" width="62" height="45" rx="20" fill="#ded4ff" stroke="#203935" stroke-width="3"/><circle cx="33" cy="44" r="3" fill="#203935"/><circle cx="57" cy="44" r="3" fill="#203935"/><path d="M35 54q10 10 20 0" fill="none" stroke="#203935" stroke-width="3" stroke-linecap="round"/></svg></div>
+        <h2 id="prompt" tabindex="-1"></h2><div id="visual"></div>
+        <div id="choices" class="full-choices" role="group" aria-label="Choose an answer"></div>
+        <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+        <div class="problem-actions"><div><button id="help" class="button quiet small">Show me why</button><button id="skip" class="button quiet small">Restart this question</button></div><button id="next" class="button primary" hidden>Continue →</button></div>
+      </article>
+      <p class="play-reassurance">No rush. Your place is saved. Help explains; retries use fresh questions.</p>
+    </section>
+    <section id="complete" class="completion-card" aria-labelledby="complete-title" hidden>
+      <div class="completion-emblem" aria-hidden="true">✦</div><h1 id="complete-title" tabindex="-1"></h1><p id="complete-copy"></p>
+      <section id="verify-section" hidden><h2>Parent observation</h2><p id="verify-prompt"></p><form id="verify-form"><fieldset><legend>Observed practical skills</legend><div id="checklist"></div></fieldset><label>Observation note<input id="verify-reason" maxlength="160" required placeholder="Describe what you observed"></label><button class="button primary" type="submit">Confirm observed activity</button></form><p>This is a parent attestation, not automatic grading or proof of mastery.</p></section>
+      <button id="complete-map" class="button primary">Explore another stage →</button>
+    </section>
+  </main>
+  <footer>
+    <p class="footer-signoff">A little curiosity goes a long way.</p>
+    <details class="footer-details"><summary>For grown-ups · about, sources &amp; licenses</summary><div class="details-content"><p id="notice"></p><p>Introductory lessons and checks for the full imported topic catalog. Each topic states its limits; completion is not mastery.</p><p><a href="https://github.com/TriMinhPham/maths-universe">Source & local edition</a></p><p>Marble Skill Taxonomy (v1) · © Generative Spark, Inc. (Marble) · <a href="./licenses/LICENSE">ODbL 1.0</a> · <a href="./licenses/LICENSE-CONTENT">CC BY-SA 4.0</a> · <a href="./licenses/NOTICE.md">Attribution</a></p></div></details>
+  </footer>
+  <dialog id="parent-dialog" class="parent-dialog" aria-labelledby="parent-title">
+    <div class="dialog-heading"><h2 id="parent-title">Parent corner</h2><button id="close-parent" class="icon-button" aria-label="Close parent corner">×</button></div>
+    <p>These controls affect only this browser and are not password-protected. No progress is sent to a server. Observe practical tasks before confirming them. This browser does not sync with the Mac app or other devices.</p>
+    <h3>Star settings</h3><form id="earning-form"><label><input id="auto" type="checkbox"> Award stars for correct answers</label><label>Stars per answer<input id="rate" type="number" min="0" max="5" required></label><label>Reason<input id="earning-reason" maxlength="160" required></label><button class="button secondary">Save settings</button></form>
+    <h3>Adjust stars</h3><form id="adjust-form"><label>Add or remove stars<input id="delta" type="number" step="1" required></label><label>Reason<input id="adjust-reason" maxlength="160" required></label><button class="button secondary">Record adjustment</button></form>
+    <h3>Parent observations</h3><ol id="activity-audit"></ol><h3>Device control audit</h3><ol id="control-audit"></ol><h3>Curriculum attempts</h3><button id="history-refresh" class="button quiet">Refresh history</button><ol id="history"></ol><button id="history-more" class="button quiet" hidden>Earlier attempts</button>
+    <p><a href="https://github.com/TriMinhPham/maths-universe">Download local edition & starter adventure →</a></p>
+  </dialog>
+</body>
+</html>
